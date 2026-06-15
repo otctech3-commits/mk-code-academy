@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>MK Code Academy - Learn Coding Free | Get Certificate</title>
+  <meta name="description" content="Learn HTML, CSS, JavaScript, Python free. Practice coding online. Get digital certificate.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+</head>
+<body>
+  <!-- BANNER AD TOP -->
+  <div class="banner-ad" id="topBanner">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-content">Your Ad Here - 728x90 | Contact: mkbots@gmail.com</div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">MK<span>CODE</span> ACADEMY</div>
+      <nav class="nav">
+        <button class="nav-btn active" onclick="showSection('home')">Home</button>
+        <button class="nav-btn" onclick="showSection('learn')">Learn</button>
+        <button class="nav-btn" onclick="showSection('practice')">Practice</button>
+        <button class="nav-btn" onclick="showSection('projects')">Projects</button>
+        <button class="nav-btn" onclick="showSection('certificate')">Certificate</button>
+      </nav>
+      <div class="user-info">
+        <span id="userPoints">⭐ 0 XP</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+    <!-- HOME SECTION -->
+    <section id="home" class="section active">
+      <div class="container">
+        <div class="hero">
+          <h1>Learn Coding From Zero to Hero</h1>
+          <p>Master HTML, CSS, JavaScript & Python. Practice live. Build real projects. Get certified.</p>
+          <button class="cta-btn" onclick="startLearning()">Start Learning Free →</button>
+        </div>
+        
+        <!-- INLINE AD -->
+        <div class="inline-ad">
+          <div class="ad-label">Sponsored</div>
+          <div class="ad-content">300x250 Banner Ad Space - High CTR</div>
+        </div>
+
+        <div class="courses">
+          <h2>📚 Available Courses</h2>
+          <div class="course-grid">
+            <div class="course-card" onclick="selectCourse('html')">
+              <div class="course-icon">🌐</div>
+              <h3>HTML Basics</h3>
+              <p>12 Lessons • 3 Projects</p>
+              <div class="progress-bar"><div class="progress-fill" style="width:0%" id="html-progress"></div></div>
+            </div>
+            <div class="course-card" onclick="selectCourse('css')">
+              <div class="course-icon">🎨</div>
+              <h3>CSS Mastery</h3>
+              <p>15 Lessons • 4 Projects</p>
+              <div class="progress-bar"><div class="progress-fill" style="width:0%" id="css-progress"></div></div>
+            </div>
+            <div class="course-card" onclick="selectCourse('js')">
+              <div class="course-icon">⚡</div>
+              <h3>JavaScript</h3>
+              <p>20 Lessons • 5 Projects</p>
+              <div class="progress-bar"><div class="progress-fill" style="width:0%" id="js-progress"></div></div>
+            </div>
+            <div class="course-card" onclick="selectCourse('python')">
+              <div class="course-icon">🐍</div>
+              <h3>Python</h3>
+              <p>18 Lessons • 6 Projects</p>
+              <div class="progress-bar"><div class="progress-fill" style="width:0%" id="python-progress"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEARN SECTION -->
+    <section id="learn" class="section">
+      <div class="container">
+        <div class="learn-layout">
+          <div class="sidebar">
+            <h3 id="courseTitle">Select Course</h3>
+            <div id="lessonList"></div>
+          </div>
+          <div class="content">
+            <div id="lessonContent">
+              <h2>Welcome to MK Code Academy</h2>
+              <p>Select a course from sidebar to start learning</p>
+            </div>
+            <div class="lesson-nav">
+              <button class="nav-btn-prev" onclick="prevLesson()">← Previous</button>
+              <button class="nav-btn-next" onclick="completeLesson()">Mark Complete →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRACTICE SECTION -->
+    <section id="practice" class="section">
+      <div class="container">
+        <h2>💻 Live Code Editor</h2>
+        <p style="color:#94a3b8;margin-bottom:20px">Write code and see output instantly</p>
+        
+        <div class="editor-layout">
+          <div class="editor-tabs">
+            <button class="tab active" onclick="switchTab('html')">HTML</button>
+            <button class="tab" onclick="switchTab('css')">CSS</button>
+            <button class="tab" onclick="switchTab('js')">JS</button>
+          </div>
+          <div class="editor-wrap">
+            <textarea id="codeEditor"></textarea>
+          </div>
+          <div class="output-wrap">
+            <div class="output-header">
+              <span>Output</span>
+              <button onclick="runCode()">▶ Run Code</button>
+            </div>
+            <iframe id="output"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>🚀 Build Real Projects</h2>
+        <p style="color:#94a3b8;margin-bottom:30px">Complete projects to earn XP and unlock certificate</p>
+        
+        <div class="project-grid" id="projectGrid"></div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATE SECTION -->
+    <section id="certificate" class="section">
+      <div class="container">
+        <div class="cert-wrap">
+          <h2>🎓 Get Your Certificate</h2>
+          <div class="cert-progress">
+            <div class="cert-stat">
+              <div class="stat-num" id="completedLessons">0</div>
+              <div class="stat-label">Lessons Done</div>
+            </div>
+            <div class="cert-stat">
+              <div class="stat-num" id="completedProjects">0</div>
+              <div class="stat-label">Projects Built</div>
+            </div>
+            <div class="cert-stat">
+              <div class="stat-num" id="totalXP">0</div>
+              <div class="stat-label">Total XP</div>
+            </div>
+          </div>
+          
+          <div id="certLocked" class="cert-locked">
+            <div class="lock-icon">🔒</div>
+            <h3>Certificate Locked</h3>
+            <p>Complete 80% lessons + 3 projects to unlock</p>
+            <div class="req-bar">
+              <div class="req-fill" id="reqFill" style="width:0%"></div>
+            </div>
+          </div>
+          
+          <div id="certReady" class="cert-ready" style="display:none">
+            <div class="cert-preview" id="certPreview">
+              <div class="cert-border">
+                <h1>CERTIFICATE OF COMPLETION</h1>
+                <p class="cert-text">This is to certify that</p>
+                <input type="text" id="certName" placeholder="Enter Your Name" class="cert-name-input">
+                <p class="cert-text">has successfully completed</p>
+                <h2>MK Code Academy Full Stack Course</h2>
+                <p class="cert-date" id="certDate"></p>
+                <div class="cert-sign">MK BOTS ACADEMY</div>
+              </div>
+            </div>
+            <button class="download-cert-btn" onclick="downloadCertificate()">⬇️ Download Certificate PDF</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- BANNER AD BOTTOM -->
+  <div class="banner-ad">
+    <div class="ad-label">Advertisement</div>
+    <div class="ad-content">Your Ad Here - 728x90</div>
+  </div>
+
+  <!-- POPUP AD -->
+  <div class="popup-ad" id="popupAd">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closePopup()">×</button>
+      <div class="ad-label">Advertisement</div>
+      <h3>🔥 Special Offer!</h3>
+      <p>Join MK BOTS Premium - Get all courses + 1-on-1 mentor</p>
+      <div class="ad-content" style="height:250px;margin:15px 0">300x250 Ad Space</div>
+      <button class="popup-cta" onclick="closePopup()">Continue Learning</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 MK Code Academy | Powered by MK BOTS</p>
+      <p style="font-size:12px;color:#64748b;margin-top:5px">Free coding education for everyone</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+        </html>
