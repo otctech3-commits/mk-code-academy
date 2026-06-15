@@ -3,31 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>MK Code Academy - Learn Coding Free | Get Certificate</title>
-  <meta name="description" content="Learn HTML, CSS, JavaScript, Python free. Practice coding online. Get digital certificate.">
+  <title>MK Code Academy Pro - Learn Full Stack | Earn Certificate</title>
+  <meta name="description" content="Master HTML, CSS, JS, React, Node.js, Python. Interactive lessons with tasks & quizzes. Get premium certificate.">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <!-- BANNER AD TOP -->
   <div class="banner-ad" id="topBanner">
     <div class="ad-label">Advertisement</div>
-    <div class="ad-content">Your Ad Here - 728x90 | Contact: mkbots@gmail.com</div>
+    <div id="ad-top"></div>
   </div>
 
   <!-- HEADER -->
   <header class="header">
     <div class="container">
-      <div class="logo">MK<span>CODE</span> ACADEMY</div>
+      <div class="logo"><i class="fa-solid fa-code"></i> MK<span>CODE</span> PRO</div>
       <nav class="nav">
-        <button class="nav-btn active" onclick="showSection('home')">Home</button>
-        <button class="nav-btn" onclick="showSection('learn')">Learn</button>
-        <button class="nav-btn" onclick="showSection('practice')">Practice</button>
-        <button class="nav-btn" onclick="showSection('projects')">Projects</button>
-        <button class="nav-btn" onclick="showSection('certificate')">Certificate</button>
+        <button class="nav-btn active" onclick="showSection('home')"><i class="fa-solid fa-house"></i> Home</button>
+        <button class="nav-btn" onclick="showSection('learn')"><i class="fa-solid fa-book"></i> Learn</button>
+        <button class="nav-btn" onclick="showSection('practice')"><i class="fa-solid fa-laptop-code"></i> Practice</button>
+        <button class="nav-btn" onclick="showSection('projects')"><i class="fa-solid fa-rocket"></i> Projects</button>
+        <button class="nav-btn" onclick="showSection('leaderboard')"><i class="fa-solid fa-trophy"></i> Leaderboard</button>
+        <button class="nav-btn" onclick="showSection('certificate')"><i class="fa-solid fa-certificate"></i> Certificate</button>
       </nav>
       <div class="user-info">
+        <div class="level-badge" id="levelBadge">LVL 1</div>
         <span id="userPoints">⭐ 0 XP</span>
       </div>
     </div>
@@ -39,45 +42,32 @@
     <section id="home" class="section active">
       <div class="container">
         <div class="hero">
-          <h1>Learn Coding From Zero to Hero</h1>
-          <p>Master HTML, CSS, JavaScript & Python. Practice live. Build real projects. Get certified.</p>
-          <button class="cta-btn" onclick="startLearning()">Start Learning Free →</button>
+          <h1>Master Full Stack Development</h1>
+          <p>Interactive lessons • Real tasks • Instant quizzes • Premium certificate</p>
+          <div class="hero-stats">
+            <div class="stat"><i class="fa-solid fa-users"></i> <span id="totalUsers">12,453</span> Students</div>
+            <div class="stat"><i class="fa-solid fa-graduation-cap"></i> <span id="totalCerts">3,821</span> Certified</div>
+            <div class="stat"><i class="fa-solid fa-star"></i> 4.9/5 Rating</div>
+          </div>
+          <button class="cta-btn" onclick="startLearning()">Start Learning Free <i class="fa-solid fa-arrow-right"></i></button>
         </div>
         
         <!-- INLINE AD -->
         <div class="inline-ad">
           <div class="ad-label">Sponsored</div>
-          <div class="ad-content">300x250 Banner Ad Space - High CTR</div>
+          <div id="ad-inline-1"></div>
         </div>
 
         <div class="courses">
-          <h2>📚 Available Courses</h2>
-          <div class="course-grid">
-            <div class="course-card" onclick="selectCourse('html')">
-              <div class="course-icon">🌐</div>
-              <h3>HTML Basics</h3>
-              <p>12 Lessons • 3 Projects</p>
-              <div class="progress-bar"><div class="progress-fill" style="width:0%" id="html-progress"></div></div>
-            </div>
-            <div class="course-card" onclick="selectCourse('css')">
-              <div class="course-icon">🎨</div>
-              <h3>CSS Mastery</h3>
-              <p>15 Lessons • 4 Projects</p>
-              <div class="progress-bar"><div class="progress-fill" style="width:0%" id="css-progress"></div></div>
-            </div>
-            <div class="course-card" onclick="selectCourse('js')">
-              <div class="course-icon">⚡</div>
-              <h3>JavaScript</h3>
-              <p>20 Lessons • 5 Projects</p>
-              <div class="progress-bar"><div class="progress-fill" style="width:0%" id="js-progress"></div></div>
-            </div>
-            <div class="course-card" onclick="selectCourse('python')">
-              <div class="course-icon">🐍</div>
-              <h3>Python</h3>
-              <p>18 Lessons • 6 Projects</p>
-              <div class="progress-bar"><div class="progress-fill" style="width:0%" id="python-progress"></div></div>
-            </div>
-          </div>
+          <h2><i class="fa-solid fa-road"></i> Learning Paths</h2>
+          <div class="course-grid" id="courseGrid"></div>
+        </div>
+
+        <div class="features">
+          <div class="feature"><i class="fa-solid fa-list-check"></i><h4>Task After Every Lesson</h4><p>Apply what you learn instantly</p></div>
+          <div class="feature"><i class="fa-solid fa-brain"></i><h4>Quiz To Test Knowledge</h4><p>MCQ quiz after each lesson</p></div>
+          <div class="feature"><i class="fa-solid fa-code"></i><h4>Live Code Editor</h4><p>Practice without leaving browser</p></div>
+          <div class="feature"><i class="fa-solid fa-award"></i><h4>Premium Certificate</h4><p>QR verified, shareable on LinkedIn</p></div>
         </div>
       </div>
     </section>
@@ -87,17 +77,40 @@
       <div class="container">
         <div class="learn-layout">
           <div class="sidebar">
-            <h3 id="courseTitle">Select Course</h3>
+            <div class="course-header">
+              <h3 id="courseTitle">Select Course</h3>
+              <div class="course-progress-text" id="courseProgressText">0% Complete</div>
+              <div class="progress-bar"><div class="progress-fill" id="courseProgressBar"></div></div>
+            </div>
             <div id="lessonList"></div>
           </div>
+          
           <div class="content">
             <div id="lessonContent">
-              <h2>Welcome to MK Code Academy</h2>
-              <p>Select a course from sidebar to start learning</p>
+              <h2>Welcome to MK Code Academy Pro</h2>
+              <p>Select a course from sidebar to start your journey</p>
             </div>
+            
+            <!-- TASK BOX -->
+            <div id="taskBox" class="task-box" style="display:none">
+              <h3><i class="fa-solid fa-list-check"></i> Task: Complete This Challenge</h3>
+              <div id="taskContent"></div>
+              <textarea id="taskCode" placeholder="Write your code here..."></textarea>
+              <button class="task-btn" onclick="submitTask()">Submit Task <i class="fa-solid fa-paper-plane"></i></button>
+              <div id="taskResult"></div>
+            </div>
+            
+            <!-- QUIZ BOX -->
+            <div id="quizBox" class="quiz-box" style="display:none">
+              <h3><i class="fa-solid fa-brain"></i> Quiz Time!</h3>
+              <div id="quizContent"></div>
+              <button class="quiz-btn" onclick="submitQuiz()">Submit Quiz</button>
+              <div id="quizResult"></div>
+            </div>
+            
             <div class="lesson-nav">
-              <button class="nav-btn-prev" onclick="prevLesson()">← Previous</button>
-              <button class="nav-btn-next" onclick="completeLesson()">Mark Complete →</button>
+              <button class="nav-btn-prev" onclick="prevLesson()"><i class="fa-solid fa-arrow-left"></i> Previous</button>
+              <button class="nav-btn-next" id="nextBtn" onclick="nextStep()" disabled>Next Step <i class="fa-solid fa-arrow-right"></i></button>
             </div>
           </div>
         </div>
@@ -107,25 +120,30 @@
     <!-- PRACTICE SECTION -->
     <section id="practice" class="section">
       <div class="container">
-        <h2>💻 Live Code Editor</h2>
-        <p style="color:#94a3b8;margin-bottom:20px">Write code and see output instantly</p>
+        <h2><i class="fa-solid fa-laptop-code"></i> Code Playground</h2>
+        <p style="color:#94a3b8;margin-bottom:20px">Choose language and start coding</p>
         
         <div class="editor-layout">
           <div class="editor-tabs">
             <button class="tab active" onclick="switchTab('html')">HTML</button>
             <button class="tab" onclick="switchTab('css')">CSS</button>
-            <button class="tab" onclick="switchTab('js')">JS</button>
+            <button class="tab" onclick="switchTab('js')">JavaScript</button>
           </div>
           <div class="editor-wrap">
             <textarea id="codeEditor"></textarea>
           </div>
           <div class="output-wrap">
             <div class="output-header">
-              <span>Output</span>
-              <button onclick="runCode()">▶ Run Code</button>
+              <span>Live Output</span>
+              <button onclick="runCode()"><i class="fa-solid fa-play"></i> Run</button>
             </div>
             <iframe id="output"></iframe>
           </div>
+        </div>
+
+        <div class="challenges">
+          <h3><i class="fa-solid fa-fire"></i> Daily Coding Challenges</h3>
+          <div class="challenge-grid" id="challengeGrid"></div>
         </div>
       </div>
     </section>
@@ -133,10 +151,18 @@
     <!-- PROJECTS SECTION -->
     <section id="projects" class="section">
       <div class="container">
-        <h2>🚀 Build Real Projects</h2>
-        <p style="color:#94a3b8;margin-bottom:30px">Complete projects to earn XP and unlock certificate</p>
-        
+        <h2><i class="fa-solid fa-rocket"></i> Real World Projects</h2>
+        <p style="color:#94a3b8;margin-bottom:30px">Build portfolio projects. Each project unlocks next level</p>
         <div class="project-grid" id="projectGrid"></div>
+      </div>
+    </section>
+
+    <!-- LEADERBOARD SECTION -->
+    <section id="leaderboard" class="section">
+      <div class="container">
+        <h2><i class="fa-solid fa-trophy"></i> Top Learners</h2>
+        <p style="color:#94a3b8;margin-bottom:30px">Compete with others. Top 10 get featured</p>
+        <div class="leaderboard-table" id="leaderboardTable"></div>
       </div>
     </section>
 
@@ -144,44 +170,63 @@
     <section id="certificate" class="section">
       <div class="container">
         <div class="cert-wrap">
-          <h2>🎓 Get Your Certificate</h2>
-          <div class="cert-progress">
-            <div class="cert-stat">
-              <div class="stat-num" id="completedLessons">0</div>
-              <div class="stat-label">Lessons Done</div>
+          <h2><i class="fa-solid fa-certificate"></i> Premium Certificate</h2>
+          
+          <div class="cert-requirements">
+            <div class="req-item" id="reqLessons">
+              <i class="fa-solid fa-book"></i>
+              <span>Complete 90% Lessons</span>
+              <div class="req-status">0/0</div>
             </div>
-            <div class="cert-stat">
-              <div class="stat-num" id="completedProjects">0</div>
-              <div class="stat-label">Projects Built</div>
+            <div class="req-item" id="reqTasks">
+              <i class="fa-solid fa-list-check"></i>
+              <span>Complete All Tasks</span>
+              <div class="req-status">0/0</div>
             </div>
-            <div class="cert-stat">
-              <div class="stat-num" id="totalXP">0</div>
-              <div class="stat-label">Total XP</div>
+            <div class="req-item" id="reqQuiz">
+              <i class="fa-solid fa-brain"></i>
+              <span>Pass All Quizzes 80%+</span>
+              <div class="req-status">0/0</div>
+            </div>
+            <div class="req-item" id="reqProjects">
+              <i class="fa-solid fa-rocket"></i>
+              <span>Build 5 Projects</span>
+              <div class="req-status">0/5</div>
             </div>
           </div>
           
           <div id="certLocked" class="cert-locked">
-            <div class="lock-icon">🔒</div>
+            <div class="lock-icon"><i class="fa-solid fa-lock"></i></div>
             <h3>Certificate Locked</h3>
-            <p>Complete 80% lessons + 3 projects to unlock</p>
-            <div class="req-bar">
-              <div class="req-fill" id="reqFill" style="width:0%"></div>
-            </div>
+            <p>Complete all requirements above to unlock your premium certificate</p>
           </div>
           
           <div id="certReady" class="cert-ready" style="display:none">
             <div class="cert-preview" id="certPreview">
-              <div class="cert-border">
-                <h1>CERTIFICATE OF COMPLETION</h1>
-                <p class="cert-text">This is to certify that</p>
-                <input type="text" id="certName" placeholder="Enter Your Name" class="cert-name-input">
-                <p class="cert-text">has successfully completed</p>
-                <h2>MK Code Academy Full Stack Course</h2>
-                <p class="cert-date" id="certDate"></p>
-                <div class="cert-sign">MK BOTS ACADEMY</div>
+              <div class="cert-gold-border">
+                <div class="cert-watermark">MK CODE ACADEMY</div>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ctext y='60' font-size='60'%3E🎓%3C/text%3E%3C/svg%3E" class="cert-logo">
+                <h1>CERTIFICATE OF EXCELLENCE</h1>
+                <p class="cert-text">This certifies that</p>
+                <input type="text" id="certName" placeholder="Enter Your Full Name" class="cert-name-input">
+                <p class="cert-text">has successfully completed the</p>
+                <h2>Full Stack Web Development Mastery</h2>
+                <p class="cert-text">covering HTML, CSS, JavaScript, React, Node.js, Python</p>
+                <div class="cert-meta">
+                  <div>Certificate ID: <span id="certId">MK-2026-XXXXX</span></div>
+                  <div>Issued: <span id="certDate"></span></div>
+                  <div>Verify: mkcode.academy/verify</div>
+                </div>
+                <div class="cert-qr" id="certQR"></div>
+                <div class="cert-sign">
+                  <div class="sign-line"></div>
+                  <div>MK BOTS ACADEMY</div>
+                  <div style="font-size:12px;color:#64748b">Authorized Signature</div>
+                </div>
               </div>
             </div>
-            <button class="download-cert-btn" onclick="downloadCertificate()">⬇️ Download Certificate PDF</button>
+            <button class="download-cert-btn" onclick="downloadCertificate()"><i class="fa-solid fa-download"></i> Download Premium PDF</button>
+            <button class="share-cert-btn" onclick="shareCertificate()"><i class="fa-brands fa-linkedin"></i> Share on LinkedIn</button>
           </div>
         </div>
       </div>
@@ -191,7 +236,7 @@
   <!-- BANNER AD BOTTOM -->
   <div class="banner-ad">
     <div class="ad-label">Advertisement</div>
-    <div class="ad-content">Your Ad Here - 728x90</div>
+    <div id="ad-bottom"></div>
   </div>
 
   <!-- POPUP AD -->
@@ -199,17 +244,19 @@
     <div class="popup-content">
       <button class="popup-close" onclick="closePopup()">×</button>
       <div class="ad-label">Advertisement</div>
-      <h3>🔥 Special Offer!</h3>
-      <p>Join MK BOTS Premium - Get all courses + 1-on-1 mentor</p>
-      <div class="ad-content" style="height:250px;margin:15px 0">300x250 Ad Space</div>
+      <h3><i class="fa-solid fa-fire"></i> Limited Time Offer!</h3>
+      <p>Upgrade to MK Code Pro - Lifetime access + Mentorship</p>
+      <div id="ad-popup"></div>
       <button class="popup-cta" onclick="closePopup()">Continue Learning</button>
     </div>
   </div>
 
+  <!-- EVENT TOAST -->
+  <div class="toast" id="toast"></div>
+
   <footer class="footer">
     <div class="container">
-      <p>© 2026 MK Code Academy | Powered by MK BOTS</p>
-      <p style="font-size:12px;color:#64748b;margin-top:5px">Free coding education for everyone</p>
+      <p>© 2026 MK Code Academy Pro | Learn. Build. Get Certified.</p>
     </div>
   </footer>
 
@@ -218,6 +265,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
   <script src="app.js"></script>
 </body>
-        </html>
+  </html>
